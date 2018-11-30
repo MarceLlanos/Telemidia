@@ -15,25 +15,20 @@ setting = {
                 info.setColorTxt(value)
                 if text ~= 0 then
                   clearTxt()
-                  info.writeText(text)
-                  function texto (evt)
-                    if evt.class == 'ncl' and 
-                       evt.type == 'presentation' and 
-                       evt.action == 'start' then 
-                        archivo =assert(io.open("n1.txt","r"))
-                        titulo = archivo:read("*a")
-                        io.close(archivo)
-                        writeText(titulo)
-                    end
-                  end
-                 event.register(texto)
+                  archivo =assert(io.open("n1.txt","r"))
+                  titulo = archivo:read("*a")
+                  io.close(archivo)
+                  info.writeText(titulo)
                 end
                end,
     sizeTxt = function(value)
                 info.setSizeTxt(value)
                 if text ~= 0 then
                   clearTxt()
-                  info.writeText(text)
+                   archivo =assert(io.open("n1.txt","r"))
+                                  titulo = archivo:read("*a")
+                                  io.close(archivo)
+                                  info.writeText(titulo)
                 end
                end
    },

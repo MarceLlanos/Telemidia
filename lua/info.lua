@@ -3,7 +3,7 @@ require "tcp"
 dofile("LuaXML/xml.lua")
 dofile("LuaXML/handler.lua")
 
-local colorTxt= 'yellow'
+local colorTxt = 'black'
 local fontTxt= 'vera'
 local sizeTxt
 
@@ -69,7 +69,7 @@ function breakString(str, maxLineSize)
   return t
 end
 
-function texto (evt)
+function handler (evt)
     if evt.class == 'ncl' and 
        evt.type == 'presentation' and 
        evt.action == 'start' then 
@@ -77,6 +77,19 @@ function texto (evt)
         titulo = archivo:read("*a")
         io.close(archivo)
         writeText(titulo)
+    end
+    
+    if evt.class == 'ncl' and
+       evt.type == 'attribution' and
+       evt.property == 'sizeTxt' and
+       evt.action == 'start' and
+       evt.value == sizeTxt then
+                    setSizeTxt(sizeTxt)
+                    canvas:clear()
+                    archivo =assert(io.open("n1.txt","r"))
+                    titulo = archivo:read("*a")
+                    io.close(archivo)
+                    writeText(titulo)
     end
        
     --tcp.execute(
@@ -93,4 +106,4 @@ function texto (evt)
           --tcp.disconnect()
       --end)  
 end
-event.register(texto)
+event.register(handler)

@@ -76,9 +76,9 @@
 					<media id="salir"  refer="mediaSalir"/>
 					<media id="fuente" refer="mediaFuente"/>
 					<media id="color"  refer="mediaColor"/>
-					<media id="infoHtml" src="lua/setting.lua" type="application/x-ginga-NCLua" descriptor="des#desHtml">
-						<property name="sizeTxt" />
-						<property name="colorTxt" value="yellow"/>
+					<media id="infoHtml" src="lua/info.lua" type="application/x-ginga-NCLua" descriptor="des#desHtml">
+						<property name="sizeTxt"/>
+						<property name="colorTxt"/>
 					</media>				
 					
 					<context id="menuFuente">
