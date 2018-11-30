@@ -1,0 +1,2 @@
+Versão preparada para o Ginga Virtual STB 0.12.1 rev 34. Testada nas resoluções 800x600 e 1280x720.
+
